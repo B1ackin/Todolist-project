@@ -8,7 +8,7 @@ import {Menu} from "@material-ui/icons";
 
 export type FilterValueType = "all" | "active" | "completed"
 
-type TodolistTypes = {
+export type TodolistTypes = {
     id: string
     title: string
     filter: FilterValueType
@@ -40,6 +40,7 @@ function App() {
             setTasks({...tasksObj})
         }
     }
+
     function changeTaskTitle(id: string, newTitle: string, todolistId: string) {
         let tasks = tasksObj[todolistId];
         let task = tasks.find(t => t.id === id)
@@ -57,16 +58,16 @@ function App() {
         setTasks({...tasksObj})
     }
 
-    function removeTodolist (todolistId: string) {
-        let filteredTodolist = todolists.filter(tl => tl.id != todolistId)
+    function removeTodolist (id: string) {
+        let filteredTodolist = todolists.filter(tl => tl.id != id)
         setTodolist(filteredTodolist)
-        delete tasksObj[todolistId]
+        delete tasksObj[id]
     }
 
-    function changeTodolistTitle (id: string, newTitle: string) {
+    function changeTodolistTitle (id: string, title: string) {
         let todolist = todolists.find(tl => tl.id === id)
         if(todolist) {
-            todolist.title = newTitle
+            todolist.title = title
             setTodolist([...todolists])
         }
     }

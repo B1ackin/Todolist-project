@@ -8,6 +8,7 @@ export type RemoveTodolistActiveType = {
 export type AddTodolistActiveType = {
     type: 'ADD-TODOLIST',
     title: string
+    todolistId: string
 }
 
 export type ChangeTodolistTitleActiveType = {
@@ -26,11 +27,11 @@ type ActionsType = RemoveTodolistActiveType | AddTodolistActiveType | ChangeTodo
 export const todolistsReducer = (state: Array<TodolistTypes>, action: ActionsType): Array<TodolistTypes> => {
     switch(action.type) {
         case 'REMOVE-TODOLIST': {
-            return state.filter(tl => tl.id != action.id)
+            return state.filter(tl => tl.id !== action.id)
         }
         case 'ADD-TODOLIST': {
             return [...state, {
-                id: v1(),
+                id: action.todolistId,
                 filter: "all",
                 title: action.title
             }]
@@ -51,7 +52,7 @@ export const todolistsReducer = (state: Array<TodolistTypes>, action: ActionsTyp
         }
 
         default:
-            throw new Error("i don't understand")
+            return state
     }
 }
 
@@ -59,14 +60,14 @@ export const RemoveTodolistAC = (todolistId: string):RemoveTodolistActiveType =>
     return { type:'REMOVE-TODOLIST', id: todolistId }
 }
 
-export const AddTodolistAC = (title: string):AddTodolistActiveType => {
-    return { type:'ADD-TODOLIST', title: title }
+export const AddTodolistAC = (title: string, id: string):AddTodolistActiveType => {
+    return { type:'ADD-TODOLIST', title: title, todolistId: id }
 }
 
 export const ChangeTodolistTitleAC = (id: string, title: string):ChangeTodolistTitleActiveType => {
     return { type:'CHANGE-TODOLIST-TITLE', id:id, title: title }
 }
 
-export const ChangeTodolistFilterAC = (id: string, filter: FilterValueType):ChangeTodolistFilterActiveType => {
-    return { type:'CHANGE-TODOLIST-FILTER', id:id, filter: filter }
+export const ChangeTodolistFilterAC = ( filter: FilterValueType, id: string):ChangeTodolistFilterActiveType => {
+    return { type:'CHANGE-TODOLIST-FILTER', filter, id }
 }

@@ -55,11 +55,24 @@ function App() {
     }
 
     function addTask (title: string, todolistId: string) {
-       let task =  {id: v1(), title: title, isDone: false}
-       let tasks = tasksObj[todolistId];
+        //debugger
+        // [{ 'odododod'}, {}, {}]
+        // {
+        //  'odododod': [{},{},{}]
+        // }
+        // {id: '1', name: 'naeme'}: []
+        // return
+        let task =  {id: v1(), title: title, isDone: false}
+        let tasks = tasksObj[todolistId];
+        console.log(tasksObj)
+        console.log([todolistId])
+        console.log(tasksObj[todolistId])
+
         let newTasks = [task, ...tasks];
         tasksObj[todolistId] = newTasks
         setTasks({...tasksObj})
+
+
     }
 
     function removeTodolist (id: string) {
@@ -150,20 +163,20 @@ function App() {
 
               return <Grid item>
                   <Paper style={ {padding: "15px"} }>
-                  <Todolist
-                          key={tl.id}
-                          id={tl.id}
-                          title={tl.title}
-                          tasks={taskForTodolist}
-                          removeTask={removeTask}
-                          changeFilter={changeFilter}
-                          addTask={addTask}
-                          changeTaskStatus={changeStatus}
-                          filter={tl.filter}
-                          removeTodolist={removeTodolist}
-                          changeTaskTitle={changeTaskTitle}
-                          changeTodolistTitle={changeTodolistTitle}
-                />
+                {/*  <Todolist*/}
+                {/*          // key={tl.id}*/}
+                {/*          // id={tl.id}*/}
+                {/*          // title={tl.title}*/}
+                {/*          // tasks={taskForTodolist}*/}
+                {/*          // removeTask={removeTask}*/}
+                {/*          // changeFilter={changeFilter}*/}
+                {/*          // addTask={addTask}*/}
+                {/*          // changeTaskStatus={changeStatus}*/}
+                {/*          // filter={tl.filter}*/}
+                {/*          // removeTodolist={removeTodolist}*/}
+                {/*          // changeTaskTitle={changeTaskTitle}*/}
+                {/*          // changeTodolistTitle={changeTodolistTitle}*/}
+                {/*/>*/}
                   </Paper>
               </Grid>
             })

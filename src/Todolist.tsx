@@ -41,8 +41,6 @@ export function Todolist(props: PropsType) {
         props.changeTodolistTitle(props.id, newTitle)
     }
 
-
-
     return (
         <div>
             <h3><EditableSpan title={props.title} onChange={changeTodolistTitle}/>

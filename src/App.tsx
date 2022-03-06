@@ -163,20 +163,20 @@ function App() {
 
               return <Grid item>
                   <Paper style={ {padding: "15px"} }>
-                  <Todolist
-                          key={tl.id}
-                          id={tl.id}
-                          title={tl.title}
-                          tasks={taskForTodolist}
-                          removeTask={removeTask}
-                          changeFilter={changeFilter}
-                          addTask={addTask}
-                          changeTaskStatus={changeStatus}
-                          filter={tl.filter}
-                          removeTodolist={removeTodolist}
-                          changeTaskTitle={changeTaskTitle}
-                          changeTodolistTitle={changeTodolistTitle}
-                />
+                {/*  <Todolist*/}
+                {/*          key={tl.id}*/}
+                {/*          id={tl.id}*/}
+                {/*          title={tl.title}*/}
+                {/*          tasks={taskForTodolist}*/}
+                {/*          removeTask={removeTask}*/}
+                {/*          changeFilter={changeFilter}*/}
+                {/*          addTask={addTask}*/}
+                {/*          changeTaskStatus={changeStatus}*/}
+                {/*          filter={tl.filter}*/}
+                {/*          removeTodolist={removeTodolist}*/}
+                {/*          changeTaskTitle={changeTaskTitle}*/}
+                {/*          changeTodolistTitle={changeTodolistTitle}*/}
+                {/*/>*/}
                   </Paper>
               </Grid>
             })

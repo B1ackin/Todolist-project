@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useState} from "react";
-import {Button, IconButton, TextField} from "@material-ui/core";
+import { IconButton, TextField} from "@material-ui/core";
 import {AddBox} from "@material-ui/icons";
 
 export type AddItemFormPropsType = {
@@ -7,7 +7,7 @@ export type AddItemFormPropsType = {
 }
 
 export const AddItemForm = React.memo((props: AddItemFormPropsType) => {
-
+    console.log('AddItemForm call')
     let [newTaskTitle, setNewTaskTitle] = useState("");
     let [error, setError] = useState<string | null>(null);
 
@@ -37,8 +37,8 @@ export const AddItemForm = React.memo((props: AddItemFormPropsType) => {
         <TextField value={newTaskTitle}
                    variant={"outlined"}
                    label={"Field value"}
-               onChange={onChangeHadler}
-               error={!!error}
+                   onChange={onChangeHadler}
+                    error={!!error}
                    helperText={error}
                onKeyPress={onKeyPressHandler}
         />

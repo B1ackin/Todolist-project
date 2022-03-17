@@ -55,7 +55,6 @@ function App() {
     }
 
     function addTask (title: string, todolistId: string) {
-        //debugger
         // [{ 'odododod'}, {}, {}]
         // {
         //  'odododod': [{},{},{}]

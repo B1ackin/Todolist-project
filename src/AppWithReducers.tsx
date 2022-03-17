@@ -75,7 +75,6 @@ function AppWithReducers() {
 
     function addTask (title: string, todolistId: string) {
         dispatchToTasksReducer(addTaskAC(title, todolistId))
-        //debugger
         // [{ 'odododod'}, {}, {}]
         // {
         //  'odododod': [{},{},{}]

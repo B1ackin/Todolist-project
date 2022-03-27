@@ -35,7 +35,6 @@ function AppWithRedux() {
 
     const removeTodolist = useCallback( (id: string) => {
         dispatch(RemoveTodolistAC(id))
-
     }, [])
 
     const changeTodolistTitle = useCallback( (id: string, title: string) => {

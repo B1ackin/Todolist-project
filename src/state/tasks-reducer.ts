@@ -7,7 +7,6 @@ export type RemoveTaskActionType = {
     type: 'REMOVE-TASK',
     taskId: string,
     todolistId: string
-
 }
 export type AddTaskActionType = {
     type: 'ADD-TASK',
@@ -56,7 +55,6 @@ export const tasksReducer = (state: TasksStateType = initialState, action: Actio
             const filteredTask = tasks.filter(t => t.id !== action.taskId)
             stateCopy[action.todolistId] = filteredTask
             return stateCopy
-
         }
         case 'ADD-TASK': {
             const stateCopy = {...state}
@@ -90,7 +88,6 @@ export const tasksReducer = (state: TasksStateType = initialState, action: Actio
             return stateCopy
         }
 
-
         default:
             return state
     }
@@ -99,7 +96,6 @@ export const tasksReducer = (state: TasksStateType = initialState, action: Actio
 export const removeTaskAC = ( taskId: string, todolistId: string,): RemoveTaskActionType => {
     return {type: 'REMOVE-TASK', taskId, todolistId }
 }
-
 export const addTaskAC = (title: string, todolistId: string): AddTaskActionType => {
     return {type: 'ADD-TASK', title, todolistId}
 }
